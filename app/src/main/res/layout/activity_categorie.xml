@@ -6,66 +6,79 @@
     android:layout_height="match_parent"
     tools:context=".Categorie">
 
-    <Button
-        android:id="@+id/btnCalcul"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#009688"
-        android:backgroundTint="#0091EA"
-        android:padding="10dp"
-        android:text="calcul"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="#2196F3"
-        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.626"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titreDuJeu" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <Button
-        android:id="@+id/btnReflexe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#009688"
-        android:backgroundTint="#0091EA"
-        android:padding="10dp"
-        android:text="reflèxe"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="#2196F3"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnMemorisation" />
+        <TextView
+            android:id="@+id/titreDuJeu"
+            android:layout_width="335dp"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="Catégorie"
+            android:textAllCaps="false"
+            android:textColor="#304FFE"
+            android:textSize="50sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnMemorisation"
-        android:layout_width="wrap_content"
-        android:layout_height="69dp"
-        android:background="#009688"
-        android:backgroundTint="#0091EA"
-        android:padding="10dp"
-        android:text="mémorisation"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="#2196F3"
-        android:textSize="36sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCalcul" />
+        <Button
+            android:id="@+id/btnMemorisation"
+            android:layout_width="0dp"
+            android:layout_height="69dp"
+            android:background="#009688"
+            android:backgroundTint="#0091EA"
+            android:padding="10dp"
+            android:text="mémorisation"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#2196F3"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnCalcul" />
 
-    <TextView
-        android:id="@+id/titreDuJeu"
-        android:layout_width="335dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:background="#FFFFFF"
-        android:padding="10dp"
-        android:text="Catégorie"
-        android:textAllCaps="false"
-        android:textColor="#304FFE"
-        android:textSize="50sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <Button
+            android:id="@+id/btnReflexe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="#009688"
+            android:backgroundTint="#0091EA"
+            android:padding="10dp"
+            android:text="reflèxe"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#2196F3"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnMemorisation" />
+
+        <Button
+            android:id="@+id/btnCalcul"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:background="#009688"
+            android:backgroundTint="#0091EA"
+            android:padding="10dp"
+            android:text="calcul"
+            android:textColor="@color/colorPrimaryDark"
+            android:textColorHint="#2196F3"
+            android:textSize="36sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titreDuJeu" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
