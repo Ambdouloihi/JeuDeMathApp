@@ -1,9 +1,8 @@
 import java.util.*
 
 class Question(calcul: Calcul) {
-    var num = 0
-    var idQuestion: Int
     val calcul: Calcul
+    var userAnswer:Int = -1
     var answerList: ArrayList<Int>? = null
         private set
     private val rand = Random()
@@ -34,8 +33,6 @@ class Question(calcul: Calcul) {
     }
 
     init {
-        num++
-        idQuestion = num
         this.calcul = calcul
         setAnswerList()
     }
