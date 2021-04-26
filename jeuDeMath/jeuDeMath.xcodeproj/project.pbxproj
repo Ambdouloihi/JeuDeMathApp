@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13E9A8262636C56F00F6C776 /* jeuDeMathApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E9A8252636C56F00F6C776 /* jeuDeMathApp.swift */; };
+		13E9A8282636C56F00F6C776 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E9A8272636C56F00F6C776 /* ContentView.swift */; };
+		13E9A82A2636C57900F6C776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E9A8292636C57900F6C776 /* Assets.xcassets */; };
+		13E9A82D2636C57900F6C776 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13E9A82C2636C57900F6C776 /* Preview Assets.xcassets */; };
+		13E9A8382636C57900F6C776 /* jeuDeMathTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E9A8372636C57900F6C776 /* jeuDeMathTests.swift */; };
+		13E9A8432636C57900F6C776 /* jeuDeMathUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E9A8422636C57900F6C776 /* jeuDeMathUITests.swift */; };
+		13E9A8542636CE3D00F6C776 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E9A8532636CE3D00F6C776 /* Storyboard.storyboard */; };
+		13E9A85C2636D01B00F6C776 /* ProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13E9A85B2636D01B00F6C776 /* ProfilViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		13E9A8342636C57900F6C776 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13E9A81A2636C56F00F6C776 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13E9A8212636C56F00F6C776;
+			remoteInfo = jeuDeMath;
+		};
+		13E9A83F2636C57900F6C776 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 13E9A81A2636C56F00F6C776 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13E9A8212636C56F00F6C776;
+			remoteInfo = jeuDeMath;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		13E9A8222636C56F00F6C776 /* jeuDeMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jeuDeMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E9A8252636C56F00F6C776 /* jeuDeMathApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jeuDeMathApp.swift; sourceTree = "<group>"; };
+		13E9A8272636C56F00F6C776 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		13E9A8292636C57900F6C776 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		13E9A82C2636C57900F6C776 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		13E9A82E2636C57900F6C776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E9A8332636C57900F6C776 /* jeuDeMathTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jeuDeMathTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E9A8372636C57900F6C776 /* jeuDeMathTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jeuDeMathTests.swift; sourceTree = "<group>"; };
+		13E9A8392636C57900F6C776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E9A83E2636C57900F6C776 /* jeuDeMathUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = jeuDeMathUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E9A8422636C57900F6C776 /* jeuDeMathUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = jeuDeMathUITests.swift; sourceTree = "<group>"; };
+		13E9A8442636C57900F6C776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		13E9A8532636CE3D00F6C776 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
+		13E9A85B2636D01B00F6C776 /* ProfilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		13E9A81F2636C56F00F6C776 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E9A8302636C57900F6C776 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E9A83B2636C57900F6C776 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		13E9A8192636C56F00F6C776 = {
+			isa = PBXGroup;
+			children = (
+				13E9A8242636C56F00F6C776 /* jeuDeMath */,
+				13E9A8362636C57900F6C776 /* jeuDeMathTests */,
+				13E9A8412636C57900F6C776 /* jeuDeMathUITests */,
+				13E9A8232636C56F00F6C776 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		13E9A8232636C56F00F6C776 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13E9A8222636C56F00F6C776 /* jeuDeMath.app */,
+				13E9A8332636C57900F6C776 /* jeuDeMathTests.xctest */,
+				13E9A83E2636C57900F6C776 /* jeuDeMathUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		13E9A8242636C56F00F6C776 /* jeuDeMath */ = {
+			isa = PBXGroup;
+			children = (
+				13E9A85B2636D01B00F6C776 /* ProfilViewController.swift */,
+				13E9A8532636CE3D00F6C776 /* Storyboard.storyboard */,
+				13E9A8252636C56F00F6C776 /* jeuDeMathApp.swift */,
+				13E9A8272636C56F00F6C776 /* ContentView.swift */,
+				13E9A8292636C57900F6C776 /* Assets.xcassets */,
+				13E9A82E2636C57900F6C776 /* Info.plist */,
+				13E9A82B2636C57900F6C776 /* Preview Content */,
+			);
+			path = jeuDeMath;
+			sourceTree = "<group>";
+		};
+		13E9A82B2636C57900F6C776 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				13E9A82C2636C57900F6C776 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		13E9A8362636C57900F6C776 /* jeuDeMathTests */ = {
+			isa = PBXGroup;
+			children = (
+				13E9A8372636C57900F6C776 /* jeuDeMathTests.swift */,
+				13E9A8392636C57900F6C776 /* Info.plist */,
+			);
+			path = jeuDeMathTests;
+			sourceTree = "<group>";
+		};
+		13E9A8412636C57900F6C776 /* jeuDeMathUITests */ = {
+			isa = PBXGroup;
+			children = (
+				13E9A8422636C57900F6C776 /* jeuDeMathUITests.swift */,
+				13E9A8442636C57900F6C776 /* Info.plist */,
+			);
+			path = jeuDeMathUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13E9A8212636C56F00F6C776 /* jeuDeMath */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13E9A8472636C57900F6C776 /* Build configuration list for PBXNativeTarget "jeuDeMath" */;
+			buildPhases = (
+				13E9A81E2636C56F00F6C776 /* Sources */,
+				13E9A81F2636C56F00F6C776 /* Frameworks */,
+				13E9A8202636C56F00F6C776 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = jeuDeMath;
+			productName = jeuDeMath;
+			productReference = 13E9A8222636C56F00F6C776 /* jeuDeMath.app */;
+			productType = "com.apple.product-type.application";
+		};
+		13E9A8322636C57900F6C776 /* jeuDeMathTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13E9A84A2636C57900F6C776 /* Build configuration list for PBXNativeTarget "jeuDeMathTests" */;
+			buildPhases = (
+				13E9A82F2636C57900F6C776 /* Sources */,
+				13E9A8302636C57900F6C776 /* Frameworks */,
+				13E9A8312636C57900F6C776 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13E9A8352636C57900F6C776 /* PBXTargetDependency */,
+			);
+			name = jeuDeMathTests;
+			productName = jeuDeMathTests;
+			productReference = 13E9A8332636C57900F6C776 /* jeuDeMathTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13E9A83D2636C57900F6C776 /* jeuDeMathUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13E9A84D2636C57900F6C776 /* Build configuration list for PBXNativeTarget "jeuDeMathUITests" */;
+			buildPhases = (
+				13E9A83A2636C57900F6C776 /* Sources */,
+				13E9A83B2636C57900F6C776 /* Frameworks */,
+				13E9A83C2636C57900F6C776 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				13E9A8402636C57900F6C776 /* PBXTargetDependency */,
+			);
+			name = jeuDeMathUITests;
+			productName = jeuDeMathUITests;
+			productReference = 13E9A83E2636C57900F6C776 /* jeuDeMathUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		13E9A81A2636C56F00F6C776 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					13E9A8212636C56F00F6C776 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					13E9A8322636C57900F6C776 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 13E9A8212636C56F00F6C776;
+					};
+					13E9A83D2636C57900F6C776 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 13E9A8212636C56F00F6C776;
+					};
+				};
+			};
+			buildConfigurationList = 13E9A81D2636C56F00F6C776 /* Build configuration list for PBXProject "jeuDeMath" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 13E9A8192636C56F00F6C776;
+			productRefGroup = 13E9A8232636C56F00F6C776 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13E9A8212636C56F00F6C776 /* jeuDeMath */,
+				13E9A8322636C57900F6C776 /* jeuDeMathTests */,
+				13E9A83D2636C57900F6C776 /* jeuDeMathUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		13E9A8202636C56F00F6C776 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13E9A82D2636C57900F6C776 /* Preview Assets.xcassets in Resources */,
+				13E9A82A2636C57900F6C776 /* Assets.xcassets in Resources */,
+				13E9A8542636CE3D00F6C776 /* Storyboard.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E9A8312636C57900F6C776 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E9A83C2636C57900F6C776 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		13E9A81E2636C56F00F6C776 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13E9A85C2636D01B00F6C776 /* ProfilViewController.swift in Sources */,
+				13E9A8282636C56F00F6C776 /* ContentView.swift in Sources */,
+				13E9A8262636C56F00F6C776 /* jeuDeMathApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E9A82F2636C57900F6C776 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13E9A8382636C57900F6C776 /* jeuDeMathTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13E9A83A2636C57900F6C776 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13E9A8432636C57900F6C776 /* jeuDeMathUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		13E9A8352636C57900F6C776 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13E9A8212636C56F00F6C776 /* jeuDeMath */;
+			targetProxy = 13E9A8342636C57900F6C776 /* PBXContainerItemProxy */;
+		};
+		13E9A8402636C57900F6C776 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13E9A8212636C56F00F6C776 /* jeuDeMath */;
+			targetProxy = 13E9A83F2636C57900F6C776 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		13E9A8452636C57900F6C776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		13E9A8462636C57900F6C776 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		13E9A8482636C57900F6C776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"jeuDeMath/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = jeuDeMath/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeuDeMath;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		13E9A8492636C57900F6C776 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"jeuDeMath/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = jeuDeMath/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeuDeMath;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		13E9A84B2636C57900F6C776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = jeuDeMathTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeuDeMathTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jeuDeMath.app/jeuDeMath";
+			};
+			name = Debug;
+		};
+		13E9A84C2636C57900F6C776 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = jeuDeMathTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeuDeMathTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/jeuDeMath.app/jeuDeMath";
+			};
+			name = Release;
+		};
+		13E9A84E2636C57900F6C776 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = jeuDeMathUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeuDeMathUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = jeuDeMath;
+			};
+			name = Debug;
+		};
+		13E9A84F2636C57900F6C776 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = jeuDeMathUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jeuDeMathUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = jeuDeMath;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		13E9A81D2636C56F00F6C776 /* Build configuration list for PBXProject "jeuDeMath" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E9A8452636C57900F6C776 /* Debug */,
+				13E9A8462636C57900F6C776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13E9A8472636C57900F6C776 /* Build configuration list for PBXNativeTarget "jeuDeMath" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E9A8482636C57900F6C776 /* Debug */,
+				13E9A8492636C57900F6C776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13E9A84A2636C57900F6C776 /* Build configuration list for PBXNativeTarget "jeuDeMathTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E9A84B2636C57900F6C776 /* Debug */,
+				13E9A84C2636C57900F6C776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13E9A84D2636C57900F6C776 /* Build configuration list for PBXNativeTarget "jeuDeMathUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13E9A84E2636C57900F6C776 /* Debug */,
+				13E9A84F2636C57900F6C776 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 13E9A81A2636C56F00F6C776 /* Project object */;
+}
