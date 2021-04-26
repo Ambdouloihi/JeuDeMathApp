@@ -1,9 +1,10 @@
+import android.os.Parcelable
 import java.util.*
 
 class Question(calcul: Calcul) {
     val calcul: Calcul
     var userAnswer:Int = -1
-    var answerList: ArrayList<Int>? = null
+    lateinit var answerList: ArrayList<Int>
         private set
     private val rand = Random()
 

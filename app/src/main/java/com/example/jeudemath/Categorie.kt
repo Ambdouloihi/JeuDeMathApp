@@ -10,13 +10,14 @@ class Categorie : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_categorie)
+        title=""
 
         val btnCalcul: Button = findViewById(R.id.btnCalcul)
-        btnCalcul.setOnClickListener { goToQuestion() }
+        btnCalcul.setOnClickListener { goToQuiz() }
 
     }
 
-    private  fun goToQuestion(){
+    private  fun goToQuiz(){
         val intent = Intent(this, Quiz::class.java)
         // start your next activity
         startActivity(intent)

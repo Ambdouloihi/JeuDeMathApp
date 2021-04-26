@@ -1,6 +1,7 @@
 package com.example.jeudemath
 
 import QuizSerie
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
@@ -10,51 +11,62 @@ import androidx.appcompat.app.AppCompatActivity
 
 
 class Quiz() : AppCompatActivity() {
-    private val counterStart = 5
-    private var counter = counterStart
+    private val COUNTERSTART = 5
+    private var counter = COUNTERSTART
 
-    private var quizSerie: QuizSerie = QuizSerie()
     private var numQuest = 0
-    private val nbQuest: Int = quizSerie.questionList!!.size
+    private var quizSerie: QuizSerie = QuizSerie()
     private var allQuest = quizSerie.questionList
-    private var currentQuest = allQuest?.get(0)
+    private val nbQuest: Int = allQuest!!.size
+    private var currentQuest = allQuest?.get(numQuest)
 
-    private lateinit var btn: TextView
-    private lateinit var countTime: TextView
-    private lateinit var boxReponse: LinearLayout
-    private lateinit var question:TextView
+    private lateinit var containerAnswer: LinearLayout
+    private lateinit var lbTimer: TextView
+    private lateinit var lbquestion: TextView
+    private lateinit var lbCalcul: TextView
+    private lateinit var btnNext: Button
+    private lateinit var btnAnswer: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        btn = findViewById(R.id.btnNext)
-        countTime = findViewById(R.id.timer)
-        boxReponse = this.findViewById(R.id.boxReponse) as LinearLayout
-        question = this.findViewById(R.id.question) as TextView
+        containerAnswer = findViewById(R.id.boxReponse)
+        lbquestion = findViewById(R.id.question)
+        lbCalcul = findViewById(R.id.calcul)
+        lbTimer = findViewById(R.id.timer)
+        btnNext = findViewById(R.id.btnNext)
 
-        btn.isEnabled = false
-        btn.setOnClickListener {
-            btn.isEnabled = false
+        btnNext.isEnabled = false
+        btnNext.setOnClickListener {
+            btnNext.isEnabled = false
             numQuest++
-            counter = counterStart
-            if ((numQuest + 1) == nbQuest) numQuest = 0
-            nextQuest(numQuest)
+            if ((numQuest) == nbQuest) goToResultat() else
+                nextQuest(numQuest)
         }
-        nextQuest(0)
+        nextQuest(numQuest)
     }
 
     fun startTimeCounter() {
-        object : CountDownTimer(5000, 1000) {
+        object : CountDownTimer(
+            (COUNTERSTART * 1000).toLong(),
+            1000
+                               ) {
             override fun onTick(millisUntilFinished: Long) {
-                countTime.text = "Temps : $counter s"
+                lbTimer.text = "Temps : $counter s"
                 counter--
             }
 
             override fun onFinish() {
-                countTime.text = "Fini"
-                var btn: TextView = findViewById(R.id.btnNext)
-                btn.isEnabled = true
+                lbTimer.text = "Fini"
+                if ((numQuest + 1) == nbQuest) {
+                    btnNext.text = "Terminer"
+                    lbTimer.text = ""
+                }
+                btnNext.isEnabled = true
+                counter = COUNTERSTART
+
             }
         }.start()
     }
@@ -62,22 +74,37 @@ class Quiz() : AppCompatActivity() {
     fun nextQuest(i: Int) {
         currentQuest = allQuest?.get(i)
 
-        var question = this.findViewById(R.id.question) as TextView
-        question.text = "Question ${i + 1}"
+        lbquestion.text = "Question ${i + 1}"
 
-        var leCalcul = currentQuest?.calcul
-        var calcul: TextView = this.findViewById(R.id.calcul) as TextView
-        calcul.text = leCalcul.toString() + " = ?"
+        var calculQuest = currentQuest?.calcul
+        lbCalcul.text = calculQuest.toString() + " = ?"
 
-        boxReponse.removeAllViews()
-            var reponse: Button
-        currentQuest!!.answerList!!.forEach { it ->
-            reponse = Button(this)
-            reponse.setTextSize(24F)
-            reponse.text = it.toString()
-            boxReponse.addView(reponse)
+        containerAnswer.removeAllViews()
+        currentQuest!!.answerList!!.forEach { answer ->
+            btnAnswer = Button(this)
+            btnAnswer.setTextSize(24F)
+            btnAnswer.text = answer.toString()
+            btnAnswer.setOnClickListener {
+                if (counter!=0) currentQuest!!.userAnswer = answer
+
+            }
+            containerAnswer.addView(btnAnswer)
         }
         startTimeCounter()
     }
 
+    private fun goToResultat() {
+        val intent = Intent(this, Resultat::class.java)
+        // start your next activity
+        val mBundle = Bundle()
+        allQuest!!.forEachIndexed { i, quest ->
+        var g = ArrayList<Int>()
+        g.add(i+1)
+        g.add(quest.userAnswer)
+        g.add(quest.calcul.answer)
+        mBundle.putIntegerArrayList(i.toString(), g)
+        }
+        intent.putExtras(mBundle)
+        startActivity(intent)
+    }
 }

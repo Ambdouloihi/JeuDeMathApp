@@ -10,11 +10,10 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.jeudemath.Categorie as ComExampleJeudemathCategorie
 
 class MainActivity : AppCompatActivity() {
-    private val ACTIVITE_A_DEMARRER = 1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout)
-        title = "Callcul Mental"
+//        title = "Calcul Mental"
 
         val btnJouer: Button = findViewById(R.id.btnJouer)
         btnJouer.setOnClickListener { goToCategoriePage() }
