@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
-        <activity android:name=".bibliotheque.jeuDeReflexe" >
-        </activity>
+        <activity android:name=".JeuDeReflexe" />
         <activity android:name=".Resultat" />
         <activity android:name=".Quiz" />
         <activity android:name=".Categorie" />

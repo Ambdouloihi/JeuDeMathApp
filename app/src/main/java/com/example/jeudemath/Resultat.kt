@@ -13,25 +13,50 @@ class Resultat : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultat)
 
+        fillResultat2()
         btnHome = findViewById(R.id.btnHome)
         btnHome.setOnClickListener { goToCategoriePage() }
-        var containerResultat: TableLayout = this.findViewById(R.id.containerResultat)
+    }
+
+    private fun fillResultat() {
         var allQuest = intent.extras as Bundle
-
-
+        var containerResultat: TableLayout = findViewById(R.id.containerResultat)
         for (key in allQuest.keySet()) {
-            var reponnse = allQuest[key] as ArrayList<Int>
+            var reponse = allQuest[key] as ArrayList<Int>
             var row = TableRow(this)
-            reponnse.forEachIndexed { i, question ->
+            reponse.forEachIndexed { i, question ->
                 var info = TextView(this)
                 info.text = "$question"
-                if (question==-1) info.text = ""
+                if (question == -1) info.text = ""
                 row.addView(info)
-                if(1==i)
-                    if ((reponnse[1]==reponnse[2]) )
-                    info.setBackgroundColor(Color.GREEN)
-                else info.setBackgroundColor(Color.RED)
-                info.gravity= Gravity.CENTER
+                if (1 == i)
+                    if ((reponse[1] == reponse[2]))
+                        info.setBackgroundColor(Color.GREEN)
+                    else info.setBackgroundColor(Color.RED)
+                info.gravity = Gravity.CENTER
+            }
+            containerResultat.addView(row)
+
+        }
+    }
+
+    private fun fillResultat2() {
+        var allQuest = intent.extras as Bundle
+        var containerResultat: TableLayout = findViewById(R.id.containerResultat)
+        for (key in allQuest.keySet()) {
+            var reponse = allQuest[key] as ArrayList<String>
+            var row = TableRow(this)
+            reponse.forEachIndexed { i, question ->
+                var info = TextView(this)
+                info.text = question
+                info.textSize= 18F
+                if (question == "-1") info.text = ""
+                row.addView(info)
+                if (1 == i)
+                    if ((reponse[1] == reponse[2]))
+                        info.setBackgroundColor(Color.GREEN)
+                    else info.setBackgroundColor(Color.RED)
+                info.gravity = Gravity.CENTER
             }
             containerResultat.addView(row)
 

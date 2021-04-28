@@ -40,8 +40,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#03A9F4"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:text="Question"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -49,8 +50,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#03A9F4"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:text="Vos réponses"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -58,8 +60,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="#03A9F4"
-                android:padding="10dp"
+                android:padding="5dp"
                 android:text="Les réponses"
+                android:textSize="18sp"
                 android:textStyle="bold" />
         </TableRow>
     </TableLayout>

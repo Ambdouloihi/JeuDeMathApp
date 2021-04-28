@@ -5,7 +5,7 @@ class Calcul() {
     private var numB: Int
     val answer: Int
     override fun toString(): String {
-        return "$numA X $numB"
+        return "$numA x $numB"
     }
 
     fun isAnswer(rep: Int): Boolean {

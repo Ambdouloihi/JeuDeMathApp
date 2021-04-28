@@ -10,16 +10,18 @@ class Categorie : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_categorie)
-        title=""
 
         val btnCalcul: Button = findViewById(R.id.btnCalcul)
-        btnCalcul.setOnClickListener { goToQuiz() }
+        val btnReflexe: Button = findViewById(R.id.btnReflexe)
+
+        btnCalcul.setOnClickListener { goToActivity(Quiz::class.java) }
+        btnReflexe.setOnClickListener { goToActivity(JeuDeReflexe::class.java) }
 
     }
 
-    private  fun goToQuiz(){
-        val intent = Intent(this, Quiz::class.java)
-        // start your next activity
+    private fun goToActivity(cls:Class<*>) {
+        val intent = Intent(this, cls)
         startActivity(intent)
     }
+
 }

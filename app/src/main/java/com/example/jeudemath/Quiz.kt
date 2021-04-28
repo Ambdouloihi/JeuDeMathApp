@@ -42,7 +42,7 @@ class Quiz() : AppCompatActivity() {
         btnNext.setOnClickListener {
             btnNext.isEnabled = false
             numQuest++
-            if ((numQuest) == nbQuest) goToResultat() else
+            if ((numQuest) == nbQuest) goToResultat2() else
                 nextQuest(numQuest)
         }
         nextQuest(numQuest)
@@ -98,11 +98,25 @@ class Quiz() : AppCompatActivity() {
         // start your next activity
         val mBundle = Bundle()
         allQuest!!.forEachIndexed { i, quest ->
-        var g = ArrayList<Int>()
-        g.add(i+1)
-        g.add(quest.userAnswer)
-        g.add(quest.calcul.answer)
-        mBundle.putIntegerArrayList(i.toString(), g)
+        var data = ArrayList<Int>()
+        data.add(i+1)
+        data.add(quest.userAnswer)
+        data.add(quest.calcul.answer)
+        mBundle.putIntegerArrayList(i.toString(), data)
+        }
+        intent.putExtras(mBundle)
+        startActivity(intent)
+    }
+    private fun goToResultat2() {
+        val intent = Intent(this, Resultat::class.java)
+        // start your next activity
+        val mBundle = Bundle()
+        allQuest!!.forEachIndexed { i, quest ->
+        var data = ArrayList<String>()
+        data.add(quest.calcul.toString())
+        data.add(""+quest.userAnswer)
+        data.add(""+quest.calcul.answer)
+        mBundle.putStringArrayList(i.toString(), data)
         }
         intent.putExtras(mBundle)
         startActivity(intent)
