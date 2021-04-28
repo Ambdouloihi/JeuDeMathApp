@@ -93,17 +93,13 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         }
     }
 fun remove(){
-    var decI:Int
-    for (i in 0 until listText.size) {
-        decI = (listText.size - 1) - i
-        if ((listText[decI].y - listText[decI].theight) <
-            listText[decI].y
-        ) listText.removeAt(decI)
+    for (i in listText.lastIndex downTo 0) {
+        if (height  < listText[i].y) listText.removeAt(i)
     }
 }
     fun collision(){
-        for (i in 0 until listText.size) {
-          for (j in 0 until i){
+        for (i in listText.lastIndex downTo 0) {
+          for (j in i - 1 downTo 0){
               if(listText[i].isCollide(listText[j])){
                   listText[i].y-=(listText[i].theight)
               }
