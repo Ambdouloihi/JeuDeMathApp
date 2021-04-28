@@ -18,7 +18,6 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
 
 
     override fun onDraw(canvas: Canvas) {
-        remove()
         canvas.drawColor(Color.CYAN)
         paint.color=Color.GRAY
         canvas.drawText("$mainAnswer", (width / 2).toFloat(), (height / 2).toFloat(), paint)
@@ -92,17 +91,15 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
             text.draw(canvas, paint)
         }
     }
-fun remove(){
-    for (i in listText.lastIndex downTo 0) {
-        if (height  < listText[i].y) listText.removeAt(i)
-    }
-}
+
     fun collision(){
         for (i in listText.lastIndex downTo 0) {
           for (j in i - 1 downTo 0){
               if(listText[i].isCollide(listText[j])){
                   listText[i].y-=(listText[i].theight)
               }
+              //remove
+              if (height  < listText[i].y) listText.removeAt(i)
           }
 
         }
