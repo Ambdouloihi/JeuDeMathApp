@@ -13,9 +13,11 @@ class Categorie : AppCompatActivity() {
 
         val btnCalcul: Button = findViewById(R.id.btnCalcul)
         val btnReflexe: Button = findViewById(R.id.btnReflexe)
+        val btnMemorisation: Button = findViewById(R.id.btnMemorisation)
 
         btnCalcul.setOnClickListener { goToActivity(Quiz::class.java) }
         btnReflexe.setOnClickListener { goToActivity(JeuDeReflexe::class.java) }
+        btnMemorisation.setOnClickListener { goToActivity(Memorisation::class.java) }
 
     }
 

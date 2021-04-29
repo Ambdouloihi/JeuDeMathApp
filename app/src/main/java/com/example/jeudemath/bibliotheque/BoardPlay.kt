@@ -17,7 +17,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     var ind = 0
 
     private var estFini = false
-    private var nbCorrectRep = 0
+    private var nbCorrectRep = 1
     val paint = Paint()
     var mainAnswer = 0
     var score = 0
