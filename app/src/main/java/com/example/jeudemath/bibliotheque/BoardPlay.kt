@@ -65,13 +65,15 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         //enable button
         btnRestart.isEnabled = true
     }
-    fun restart(){
+
+    fun restart() {
         btnRestart.isEnabled = false
-       listCalcul.clear()
+        listCalcul.clear()
         fillListCoord()
-        ind=0
-        score=0
+        ind = 0
+        score = 0
     }
+
     private fun dessinerLesCalculs(canvas: Canvas) {
         paint.textSize = 80F
         listCalcul.forEach { text ->
@@ -146,7 +148,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     }
 
     override fun onTouchEvent(e: MotionEvent?): Boolean {
-        for (text in listCalcul) if (e != null) when {
+        if (e != null) for (text in listCalcul) when {
             text.isTouch(e.x.toInt(), e.y.toInt()) -> {
                 //clic calcul de base
                 when (text.color) {
@@ -164,7 +166,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
                                 ind++;nbCorrectRep++
                             }
                         }
-                        nbCorrectRep++
+//                        nbCorrectRep++
                         mainAnswer = listCalcul[ind].calcAnswer
                         when {
                             score < Int.MAX_VALUE -> score++
