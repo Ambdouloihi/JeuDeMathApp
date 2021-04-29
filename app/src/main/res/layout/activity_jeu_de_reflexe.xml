@@ -24,13 +24,12 @@
 
   <Button
       android:id="@+id/btnRestart"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_width="60dp"
+      android:layout_height="60dp"
       android:layout_marginEnd="24dp"
       android:layout_marginBottom="24dp"
       android:layout_weight="1"
-      android:onClick="restart"
-      android:text="O"
+      android:drawableLeft="@drawable/ic_restart"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent" />
 
