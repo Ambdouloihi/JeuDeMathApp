@@ -10,14 +10,14 @@ import UIKit
 
 class QuizViewController: UIViewController {
     private var ind=0
-    private var COUNTERSTART=2
+    private var COUNTERSTART=5
     private var counter=0
     
     private var NBQUEST=5
     private var allQuest:Array<Question>!
     private var currentQuest:Question!
     
-    var allRepUser:[String]=["","","","",""]
+    var allRepUser:[String]=["x","x","x","x","x"]
     var allRep:[String]=["","","","",""]
     var allCalc:[String]=["","","","",""]
     private var rep=""
@@ -65,21 +65,36 @@ class QuizViewController: UIViewController {
          {
             
             lblTemps.text="\(counter) sec"
-            if(0<counter){counter-=1}
+            
             if(counter==0){
                 
-                if ((ind+1)==NBQUEST) { btnTerminer.isEnabled=true }
-                if ((ind+1)<NBQUEST) {btnSuivant.isEnabled=true}
-                if((ind+1)<NBQUEST) { ind+=1 }
+                if ((ind+1)==NBQUEST) { btnTerminer.isEnabled=true
+            
+                    
+                }
+                if ((ind+1)<NBQUEST) {btnSuivant.isEnabled=true
+                    
+                }
                 
                 indRepUser=segmentReponse.selectedSegmentIndex
-                rep=segmentReponse.titleForSegment(at: ind-1) ?? ""
+                rep=segmentReponse.titleForSegment(at: indRepUser) ?? ""
+                
                 allRepUser[ind]=rep
+                allRep[ind]="\(currentQuest.answer)"
+                allCalc[ind]=currentQuest.text
+                
+                if((ind+1)<NBQUEST) { ind+=1 }
+                
+                
             }
-         }
+            if(0<counter){counter-=1}
+            
+    }
     
 
     @IBAction func fillnextQuestion(_ sender: Any) {
+       
+        
         btnSuivant.isEnabled=false
         nextQuest(i: ind)
         
@@ -103,8 +118,8 @@ class QuizViewController: UIViewController {
             segmentReponse.setTitle(String(calc), forSegmentAt: i )
         }
         
-        allRep[i]="\(currentQuest.answer)"
-        allCalc[i]=currentQuest.text
+        
+       
     }
     
     func fillAllQuest() -> Array<Question> {
