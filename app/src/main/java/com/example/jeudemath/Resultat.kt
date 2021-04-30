@@ -1,9 +1,11 @@
 package com.example.jeudemath
 
+import android.app.ActionBar
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
+import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
@@ -13,31 +15,9 @@ class Resultat : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultat)
 
-        fillResultat2()
         btnHome = findViewById(R.id.btnHome)
         btnHome.setOnClickListener { goToCategoriePage() }
-    }
-
-    private fun fillResultat() {
-        var allQuest = intent.extras as Bundle
-        var containerResultat: TableLayout = findViewById(R.id.containerResultat)
-        for (key in allQuest.keySet()) {
-            var reponse = allQuest[key] as ArrayList<Int>
-            var row = TableRow(this)
-            reponse.forEachIndexed { i, question ->
-                var info = TextView(this)
-                info.text = "$question"
-                if (question == -1) info.text = ""
-                row.addView(info)
-                if (1 == i)
-                    if ((reponse[1] == reponse[2]))
-                        info.setBackgroundColor(Color.GREEN)
-                    else info.setBackgroundColor(Color.RED)
-                info.gravity = Gravity.CENTER
-            }
-            containerResultat.addView(row)
-
-        }
+        fillResultat2()
     }
 
     private fun fillResultat2() {

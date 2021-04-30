@@ -11,28 +11,19 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
 
 
-class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
+class FondJeu(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
     val NBCALCUL = 10
     var listCalcul = ArrayList<(Calcul)>()
-    var ind = 0
 
     private var estFini = false
-    private var nbCorrectRep = 1
     val paint = Paint()
-    var mainAnswer = 0
-    var score = 0
 
-    private lateinit var lblScrore: TxtLabel
-    private lateinit var lblNombre: TxtLabel
 
-    private lateinit var btnRestart: Button
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+        if (estFini) restart()
         dessineFond(canvas)
-
-        dessineLabel(canvas)
-
         estFini = true // le jeu fini lorsque tous les label calcul disparaisent
         dessinerLesCalculs(canvas)
         invalidate() //rappel onDraw(cette meme fonction)
@@ -42,36 +33,13 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         canvas.drawColor(Color.CYAN)
     }
 
-    private fun dessineLabel(canvas: Canvas) {
-        paint.color = Color.GRAY
-        paint.textSize = 50F
-        lblScrore.draw("Score : $score", canvas)
-        paint.textSize = 80F
 
-        when {
-            !estFini -> lblNombre.txt = "$mainAnswer"
-            estFini  -> {
-                dessineEtatDeFin()
-            }
-        }
-        lblNombre.draw(lblNombre.txt, canvas)
-    }
 
-    private fun dessineEtatDeFin() {
-        when (NBCALCUL) {
-            nbCorrectRep -> lblNombre.txt = "GAGNÉ!!!"
-            else         -> lblNombre.txt = "PERDU"
-        }
-        //enable button
-        btnRestart.isEnabled = true
-    }
 
     fun restart() {
-        btnRestart.isEnabled = false
         listCalcul.clear()
         fillListCoord()
-        ind = 0
-        score = 0
+
     }
 
     private fun dessinerLesCalculs(canvas: Canvas) {
@@ -122,89 +90,14 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
             if ((width - txt.twidth) < txt.x)
                 txt.x -= txt.twidth
         }
-        mainAnswer = listCalcul[ind].calcAnswer
     }
 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
         fillListCoord()
-        paint.textSize = 50F
-        lblScrore = TxtLabel(
-            "Score : $score",
-            (width / 2).toFloat(), 100.0F, paint
-                            )
-        paint.textSize = 80F
-        lblNombre = TxtLabel(
-            "$mainAnswer",
-            (width / 2).toFloat(), (height / 2).toFloat(), paint
-                            )
-
-        //desable button
-        var cl = parent.parent as ConstraintLayout
-        btnRestart = cl[1] as Button
-        btnRestart.isEnabled = false
-
-        btnRestart.setOnClickListener { restart() }
     }
 
-    override fun onTouchEvent(e: MotionEvent?): Boolean {
-        if (e != null) for (text in listCalcul) when {
-            text.isTouch(e.x.toInt(), e.y.toInt()) -> {
-                //clic calcul de base
-                when (text.color) {
-                    Color.RED -> text.color = Color.GRAY
-                    else      -> text.color = Color.RED
-                }
 
-                //clic bonne reponse
-                when {
-                    (text.calcAnswer == mainAnswer) &&
-                    (text.color != Color.BLUE) -> {
-                        text.color = Color.BLUE
-                        when {
-                            (ind + 1) < listCalcul.size -> {
-                                ind++;nbCorrectRep++
-                            }
-                        }
-//                        nbCorrectRep++
-                        mainAnswer = listCalcul[ind].calcAnswer
-                        when {
-                            score < Int.MAX_VALUE -> score++
-                        }
-                    }
-                    Int.MIN_VALUE < score      -> score--
-                }
-
-            }
-        }
-        return super.onTouchEvent(e)
-    }
-
-    class TxtLabel(
-        var txt: String,
-        private var x: Float, private var y: Float,
-        private var paint: Paint
-                  ) {
-        private var twidth = 0
-        private var theight = 0
-
-        init {
-            paint.color = Color.GRAY
-        }
-
-        fun draw(newTxt: String, canvas: Canvas) {
-            setBounds()
-            canvas.drawText(newTxt, x - (twidth / 2), y - (theight / 2), paint)
-        }
-
-        private fun setBounds() {
-            var bounds = Rect()
-            paint.getTextBounds(txt, 0, txt.length, bounds);
-
-            twidth = bounds.width()
-            theight = bounds.height()
-        }
-    }
 
     class Calcul(var x: Float, var y: Float, paint: Paint) {
         var color: Int = Color.GRAY

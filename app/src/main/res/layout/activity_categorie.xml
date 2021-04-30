@@ -6,23 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".Categorie">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
+    <com.example.jeudemath.bibliotheque.FondJeu
+        android:id="@+id/canvas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/titreDuJeu"
-            android:layout_width="407dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="#9C27B0"
             android:backgroundTint="#F4E9E9"
             android:gravity="center"
-            android:padding="10dp"
             android:text="Catégorie"
             android:textAllCaps="false"
             android:textColor="#304FFE"
@@ -32,51 +40,51 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnMemorisation"
-            android:layout_width="0dp"
-            android:layout_height="69dp"
-            android:background="#009688"
-            android:backgroundTint="#0091EA"
-            android:text="mémorisation"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="#2196F3"
-            android:textSize="36sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnCalcul" />
-
-        <Button
-            android:id="@+id/btnReflexe"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:background="#009688"
-            android:backgroundTint="#0091EA"
-            android:text="réflexe"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="#2196F3"
-            android:textSize="36sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnMemorisation" />
-
-        <Button
-            android:id="@+id/btnCalcul"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:background="#009688"
-            android:backgroundTint="#0091EA"
-            android:text="calcul"
-            android:textColor="@color/colorPrimaryDark"
-            android:textColorHint="#2196F3"
-            android:textSize="36sp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titreDuJeu" />
+            app:layout_constraintTop_toBottomOf="@+id/titreDuJeu">
+
+            <Button
+                android:id="@+id/btnCalcul"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#009688"
+                android:backgroundTint="#0091EA"
+                android:text="calcul"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#2196F3"
+                android:textSize="36sp" />
+
+            <Button
+                android:id="@+id/btnMemorisation"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:background="#009688"
+                android:backgroundTint="#0091EA"
+                android:text="mémorisation"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#2196F3"
+                android:textSize="36sp" />
+
+            <Button
+                android:id="@+id/btnReflexe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#009688"
+                android:backgroundTint="#0091EA"
+                android:text="réflexe"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#2196F3"
+                android:textSize="36sp" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

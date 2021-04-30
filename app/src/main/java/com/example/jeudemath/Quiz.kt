@@ -2,12 +2,14 @@ package com.example.jeudemath
 
 import QuizSerie
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.children
 
 
 class Quiz() : AppCompatActivity() {
@@ -25,7 +27,7 @@ class Quiz() : AppCompatActivity() {
     private lateinit var lbquestion: TextView
     private lateinit var lbCalcul: TextView
     private lateinit var btnNext: Button
-    private lateinit var btnAnswer: Button
+    private lateinit var btnTerminer: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,41 +39,66 @@ class Quiz() : AppCompatActivity() {
         lbCalcul = findViewById(R.id.calcul)
         lbTimer = findViewById(R.id.timer)
         btnNext = findViewById(R.id.btnNext)
+        btnTerminer = findViewById(R.id.btnTerminer)
 
+        btnTerminer.isEnabled = false
         btnNext.isEnabled = false
+
         btnNext.setOnClickListener {
             btnNext.isEnabled = false
             numQuest++
-            if ((numQuest) == nbQuest) goToResultat2() else
-                nextQuest(numQuest)
+            nextQuest(numQuest)
         }
+        btnTerminer.setOnClickListener { goToResultat2() }
+
+        containerAnswer.children.forEachIndexed { i, view ->
+            val btnAnswer=view as Button
+
+            btnAnswer.text= currentQuest!!.answerList[i].toString()
+
+            btnAnswer.setOnClickListener {
+                containerAnswer.children.forEachIndexed { i, view ->
+                    val btnAnswer=view as Button
+                    btnAnswer.setTextColor(Color.BLACK)
+                }
+
+                when (btnAnswer.currentTextColor) {
+                    Color.BLACK -> btnAnswer.setTextColor(Color.BLUE)
+                }
+                if (counter != 0) currentQuest!!.userAnswer = (btnAnswer.text as String).toInt()
+            }
+        }
+
+
+
         nextQuest(numQuest)
     }
 
-    fun startTimeCounter() {
+    private fun startTimeCounter() {
         object : CountDownTimer(
             (COUNTERSTART * 1000).toLong(),
             1000
                                ) {
             override fun onTick(millisUntilFinished: Long) {
-                lbTimer.text = "Temps : $counter s"
+                lbTimer.text = "$counter sec"
                 counter--
             }
 
             override fun onFinish() {
-                lbTimer.text = "Fini"
                 if ((numQuest + 1) == nbQuest) {
-                    btnNext.text = "Terminer"
+                    btnTerminer.isEnabled = true
                     lbTimer.text = ""
+                } else {
+                    lbTimer.text = "$counter sec"
+                    btnNext.isEnabled = true
+                    counter = COUNTERSTART
                 }
-                btnNext.isEnabled = true
-                counter = COUNTERSTART
 
             }
         }.start()
     }
 
-    fun nextQuest(i: Int) {
+    private fun nextQuest(i: Int) {
         currentQuest = allQuest?.get(i)
 
         lbquestion.text = "Question ${i + 1}"
@@ -79,44 +106,28 @@ class Quiz() : AppCompatActivity() {
         var calculQuest = currentQuest?.calcul
         lbCalcul.text = calculQuest.toString() + " = ?"
 
-        containerAnswer.removeAllViews()
-        currentQuest!!.answerList!!.forEach { answer ->
-            btnAnswer = Button(this)
-            btnAnswer.setTextSize(24F)
-            btnAnswer.text = answer.toString()
-            btnAnswer.setOnClickListener {
-                if (counter!=0) currentQuest!!.userAnswer = answer
-
-            }
-            containerAnswer.addView(btnAnswer)
+        //containerAnswer.removeAllViews()
+        containerAnswer.children.forEachIndexed { i, btn ->
+            val btnAnswer=btn as Button
+            btnAnswer.setTextColor(Color.BLACK)
+            btnAnswer.text= currentQuest!!.answerList[i].toString()
         }
+
         startTimeCounter()
     }
 
-    private fun goToResultat() {
-        val intent = Intent(this, Resultat::class.java)
-        // start your next activity
-        val mBundle = Bundle()
-        allQuest!!.forEachIndexed { i, quest ->
-        var data = ArrayList<Int>()
-        data.add(i+1)
-        data.add(quest.userAnswer)
-        data.add(quest.calcul.answer)
-        mBundle.putIntegerArrayList(i.toString(), data)
-        }
-        intent.putExtras(mBundle)
-        startActivity(intent)
-    }
     private fun goToResultat2() {
         val intent = Intent(this, Resultat::class.java)
         // start your next activity
         val mBundle = Bundle()
         allQuest!!.forEachIndexed { i, quest ->
-        var data = ArrayList<String>()
-        data.add(quest.calcul.toString())
-        data.add(""+quest.userAnswer)
-        data.add(""+quest.calcul.answer)
-        mBundle.putStringArrayList(i.toString(), data)
+            var data = ArrayList<String>()
+
+            data.add(quest.calcul.toString())
+            data.add("" + quest.userAnswer)
+            data.add("" + quest.calcul.answer)
+
+            mBundle.putStringArrayList(i.toString(), data)
         }
         intent.putExtras(mBundle)
         startActivity(intent)

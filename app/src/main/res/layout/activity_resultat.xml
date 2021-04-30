@@ -12,8 +12,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
         android:text="Resultat"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/containerResultat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +25,8 @@
     <TableLayout
         android:id="@+id/containerResultat"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:background="#00BCD4"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/btnHome"
@@ -32,36 +36,44 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <TableRow
+            android:id="@+id/initRow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/textView4"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="#03A9F4"
                 android:padding="5dp"
                 android:text="Question"
+                android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="#03A9F4"
                 android:padding="5dp"
                 android:text="Vos réponses"
+                android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="#03A9F4"
                 android:padding="5dp"
                 android:text="Les réponses"
+                android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold" />
         </TableRow>
@@ -71,9 +83,10 @@
         android:id="@+id/btnHome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
         android:text="Acceuil"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
