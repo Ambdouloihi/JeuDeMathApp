@@ -10,6 +10,9 @@
 		EC4075B626394DD800B83F09 /* QuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4075B526394DD800B83F09 /* QuizViewController.swift */; };
 		EC4075BB26396E7B00B83F09 /* CategorieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4075BA26396E7B00B83F09 /* CategorieViewController.swift */; };
 		EC4075BD263989A900B83F09 /* ResultatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC4075BC263989A900B83F09 /* ResultatViewController.swift */; };
+		EC6591F3263C34200080C433 /* ReflexeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6591F2263C34200080C433 /* ReflexeViewController.swift */; };
+		EC6591F5263C34DB0080C433 /* MultiplicationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6591F4263C34DB0080C433 /* MultiplicationViewController.swift */; };
+		EC6591F7263C3B150080C433 /* MaCellMulti.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6591F6263C3B150080C433 /* MaCellMulti.swift */; };
 		ECCCF7E6263AB54A00D41EF5 /* MaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCCF7E5263AB54A00D41EF5 /* MaCell.swift */; };
 		ECED00A9263826B50088BBEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED00A8263826B50088BBEE /* AppDelegate.swift */; };
 		ECED00AB263826B50088BBEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECED00AA263826B50088BBEE /* SceneDelegate.swift */; };
@@ -23,6 +26,9 @@
 		EC4075B526394DD800B83F09 /* QuizViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizViewController.swift; sourceTree = "<group>"; };
 		EC4075BA26396E7B00B83F09 /* CategorieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategorieViewController.swift; sourceTree = "<group>"; };
 		EC4075BC263989A900B83F09 /* ResultatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultatViewController.swift; sourceTree = "<group>"; };
+		EC6591F2263C34200080C433 /* ReflexeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflexeViewController.swift; sourceTree = "<group>"; };
+		EC6591F4263C34DB0080C433 /* MultiplicationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationViewController.swift; sourceTree = "<group>"; };
+		EC6591F6263C3B150080C433 /* MaCellMulti.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaCellMulti.swift; sourceTree = "<group>"; };
 		ECCCF7E5263AB54A00D41EF5 /* MaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaCell.swift; sourceTree = "<group>"; };
 		ECED00A5263826B50088BBEE /* JeuDeMath.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JeuDeMath.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECED00A8263826B50088BBEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				EC4075BC263989A900B83F09 /* ResultatViewController.swift */,
+				EC6591F2263C34200080C433 /* ReflexeViewController.swift */,
 				EC4075B526394DD800B83F09 /* QuizViewController.swift */,
 				EC4075BA26396E7B00B83F09 /* CategorieViewController.swift */,
 			);
@@ -77,7 +84,9 @@
 				ECED00A8263826B50088BBEE /* AppDelegate.swift */,
 				ECED00AA263826B50088BBEE /* SceneDelegate.swift */,
 				ECED00AC263826B50088BBEE /* ViewController.swift */,
+				EC6591F6263C3B150080C433 /* MaCellMulti.swift */,
 				ECCCF7E5263AB54A00D41EF5 /* MaCell.swift */,
+				EC6591F4263C34DB0080C433 /* MultiplicationViewController.swift */,
 				EC4075B926394F5100B83F09 /* controller */,
 				ECED00AE263826B50088BBEE /* Main.storyboard */,
 				ECED00B1263826B60088BBEE /* Assets.xcassets */,
@@ -157,7 +166,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC6591F3263C34200080C433 /* ReflexeViewController.swift in Sources */,
 				EC4075BD263989A900B83F09 /* ResultatViewController.swift in Sources */,
+				EC6591F5263C34DB0080C433 /* MultiplicationViewController.swift in Sources */,
+				EC6591F7263C3B150080C433 /* MaCellMulti.swift in Sources */,
 				ECCCF7E6263AB54A00D41EF5 /* MaCell.swift in Sources */,
 				ECED00AD263826B50088BBEE /* ViewController.swift in Sources */,
 				EC4075BB26396E7B00B83F09 /* CategorieViewController.swift in Sources */,
