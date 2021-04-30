@@ -10,14 +10,16 @@ import UIKit
 
 class QuizViewController: UIViewController {
     private var ind=0
-    private var COUNTERSTART=5
+    private var COUNTERSTART=2
     private var counter=0
     
     private var NBQUEST=5
-    private var allQuest:Array<Question>?
-    private var currentQuest:Question?
+    private var allQuest:Array<Question>!
+    private var currentQuest:Question!
     
-    var allRepUser:Array<String>=[]
+    var allRepUser:[String]=["","","","",""]
+    var allRep:[String]=["","","","",""]
+    var allCalc:[String]=["","","","",""]
     private var rep=""
     private var indRepUser=0
     @IBOutlet var lblTemps: UILabel!
@@ -31,7 +33,10 @@ class QuizViewController: UIViewController {
         
         if segue.identifier == "goResult" {
             let vc=segue.destination as! ResultatViewController
-            vc.allRepUser = self.allRepUser
+            vc.allRepUser.append(contentsOf: self.allRepUser)
+            vc.allRep.append(contentsOf: self.allRep)
+            vc.allCalc.append(contentsOf: allCalc)
+            
         }
     }
     required init?(coder aDecoder: NSCoder)
@@ -45,23 +50,27 @@ class QuizViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        btnTerminer.isEnabled=false
+        
         nextQuest(i: ind)
         
         let timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(fire), userInfo: nil, repeats: true)
-
-       // btnSuivant.isEnabled=false
+        
+        btnSuivant.isEnabled=false
+        btnTerminer.isEnabled=false
     }
     
     
     
     @objc func fire()
          {
-            if(0<counter){counter-=1}
+            
             lblTemps.text="\(counter) sec"
+            if(0<counter){counter-=1}
             if(counter==0){
-                //if ((ind+1)<NBQUEST) {btnSuivant.isEnabled=true}
-                counter=COUNTERSTART
+                
+                if ((ind+1)==NBQUEST) { btnTerminer.isEnabled=true }
+                if ((ind+1)<NBQUEST) {btnSuivant.isEnabled=true}
+                if((ind+1)<NBQUEST) { ind+=1 }
                 
                 indRepUser=segmentReponse.selectedSegmentIndex
                 rep=segmentReponse.titleForSegment(at: ind-1) ?? ""
@@ -71,23 +80,21 @@ class QuizViewController: UIViewController {
     
 
     @IBAction func fillnextQuestion(_ sender: Any) {
-        if ((ind+1)==NBQUEST) { btnTerminer.isEnabled=true }
-        //else {btnSuivant.isEnabled=true}
-        
-        
+        btnSuivant.isEnabled=false
         nextQuest(i: ind)
-        //btnSuivant.isEnabled=false
+        
+        
+        
+        counter=COUNTERSTART
+        
     }
-    @IBAction func showResult(_ sender: Any) {
-        let vc = ResultatViewController()
-        vc.allRepUser = allRepUser
-        self.navigationController?.pushViewController(vc, animated: true)
-        //navigationController?.pushViewController(vc, animated: true)
-    }
+  
     
 
     func nextQuest(i:Int)  {
-        currentQuest=allQuest?[i]
+        currentQuest=allQuest[i]
+        
+        
         
         lblQuestion.text="Question \(i+1)"
         lblCalcul.text=(currentQuest?.text ?? "calcul")+" = ?"
@@ -96,7 +103,8 @@ class QuizViewController: UIViewController {
             segmentReponse.setTitle(String(calc), forSegmentAt: i )
         }
         
-         if((ind+1)<NBQUEST) { ind+=1 }
+        allRep[i]="\(currentQuest.answer)"
+        allCalc[i]=currentQuest.text
     }
     
     func fillAllQuest() -> Array<Question> {

@@ -9,10 +9,12 @@ import UIKit
 
 class ResultatViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
-    @IBOutlet var tableauResultat: UITableView!
+ 
     @IBOutlet var tab2: UITableView!
+    var allRepUser:Array<String>=["Repondu"]
+    var allRep:Array<String>=["Reponse"]
+    var allCalc:Array<String>=["Question"]
     
-    var allRepUser:Array<String>=["]
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         allRepUser.count
     }
@@ -20,11 +22,19 @@ class ResultatViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tab2.dequeueReusableCell(withIdentifier: "myIdCell") as! MaCell
       
-        cell.lblQuest.text=allRepUser[0]
+        cell.lblQuest.text=allCalc[indexPath.row]
         cell.lblRepUser.text=allRepUser[indexPath.row]
-        //cell.lblRep.text="r"
+        cell.lblRep.text=allRep[indexPath.row]
+        
+        if(0<indexPath.row){
+            if(!cell.lblRepUser.text!.elementsEqual(cell.lblRep.text!)) {cell.lblRepUser.backgroundColor=UIColor.red}
+            else {cell.lblRepUser.backgroundColor=UIColor.green}
+        }
+        
         return cell
     }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
