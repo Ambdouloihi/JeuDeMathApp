@@ -1,4 +1,4 @@
-package com.example.jeudemath.bibliotheque
+package com.example.jeudemath
 
 import Calcul
 import android.content.Context
@@ -7,8 +7,10 @@ import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.get
+import com.example.jeudemath.ScoreReflexe
 
 
 class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
@@ -26,7 +28,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     private lateinit var lblNombre: TxtLabel
     private lateinit var continueText: TxtLabel
 
-    private lateinit var btnRestart:Button
+    private lateinit var btnRestart: Button
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -59,6 +61,8 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
                 paint.textSize = 40F
                 continueText.draw(canvas)
                 estFini = false
+
+
             }
         }
         paint.textSize = 80F
@@ -75,7 +79,9 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         listCalcul.clear()
         initListCalc()
 
-        btnRestart.isEnabled=false
+
+        // inserer en dernier
+        btnRestart.isEnabled = false
     }
 
     private fun dessinerLesCalculs(canvas: Canvas) {
@@ -90,8 +96,27 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         }
         corrigeCollision()
 
-        if (estFini) btnRestart.isEnabled=true
+
+
+
+        if (estFini) {
+            btnRestart.isEnabled = true
+
+            //sauvegarde du score
+            var db = DataBaseHandler(this.context)
+            val allScore = db.readData()
+
+            when {
+                (allScore.size < 3) && (!allScore.contains(score))  -> db.insertData(score)
+                (3 <= allScore.size) && (!allScore.contains(score)) -> {
+                    val lastScore = allScore[allScore.lastIndex]
+                    db.updateData(lastScore,
+                                  score)
+                }
+            }
+        }
     }
+
 
     private fun corrigeCollision() {
         var texti: Calcul
@@ -120,6 +145,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
         super.onSizeChanged(w, h, oldw, oldh)
 
+
         initListCalc()
 
         var x = (width / 2).toFloat()
@@ -134,13 +160,13 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
 
         continueText = TxtLabel("(cliquez sur le button recommencer)",
                                 x,
-                                lblNombre.y+lblNombre.twidth+100,
+                                lblNombre.y + lblNombre.twidth + 100,
                                 paint)
 
-        val canvasParent=parent.parent as ConstraintLayout
-        btnRestart= canvasParent[1] as Button
+        val canvasParent = parent.parent as ConstraintLayout
+        btnRestart = canvasParent[1] as Button
         btnRestart.setOnClickListener { restart() }
-        btnRestart.isEnabled=false
+        btnRestart.isEnabled = false
     }
 
     private fun initListCalc() {
@@ -199,7 +225,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         var y: Float,
         private var paint: Paint,
                   ) {
-         var twidth = 0
+        var twidth = 0
         var theight = 0
 
         init {
@@ -210,6 +236,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
             setBounds()
             canvas.drawText(newTxt, x - (twidth / 2), y - (theight / 2), paint)
         }
+
         fun draw(canvas: Canvas) {
             setBounds()
             canvas.drawText(txt, x - (twidth / 2), y - (theight / 2), paint)
@@ -230,7 +257,8 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         var twidth = 0
         var theight = 0
         var calcAnswer = 0
-        var textSizeCalc=100F
+        var textSizeCalc = 100F
+
         init {
             var calc = Calcul()
             txt = calc.toString()
@@ -254,12 +282,12 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
 
 
         fun move() {
-            y += 1
+            y += 5
         }
 
         fun draw(canvas: Canvas) {
-            paint.textSize=textSizeCalc
-            setBounds(txt,paint)
+            paint.textSize = textSizeCalc
+            setBounds(txt, paint)
 
             canvas.drawText(txt + "", x, y, paint)
             move()

@@ -17,7 +17,7 @@ class Memorisation : AppCompatActivity() {
 
         val listeTable= (0..10).map { i-> "Table de $i" }
         // access the listView from xml file
-        val listView = findViewById<ListView>(R.id.tableViewMult)
+        val listView = findViewById<ListView>(R.id.tableViewScore)
         arrayAdapter = ArrayAdapter(this,
             android.R.layout.simple_list_item_1, listeTable
                                    )

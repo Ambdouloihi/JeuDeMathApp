@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".ScoreReflexe">
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:text="Table De Multiplication"
+        android:text="Score  jeu de réflexe "
         android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -31,8 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6">
-
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@+id/textView6"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

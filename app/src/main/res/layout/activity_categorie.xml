@@ -58,21 +58,7 @@
                 android:layout_height="wrap_content"
                 android:background="#009688"
                 android:backgroundTint="#0091EA"
-                android:text="Calcul"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="#2196F3"
-                android:textSize="36sp" />
-
-            <Button
-                android:id="@+id/btnMemorisation"
-                android:layout_width="wrap_content"
-                android:layout_height="69dp"
-                android:background="#009688"
-                android:backgroundTint="#0091EA"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:text="Mémorisation"
+                android:text="Quiz"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="#2196F3"
@@ -89,7 +75,38 @@
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="#2196F3"
                 android:textSize="36sp" />
+
+            <Button
+                android:id="@+id/btnMemorisation"
+                android:layout_width="wrap_content"
+                android:layout_height="69dp"
+                android:background="#009688"
+                android:backgroundTint="#0091EA"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Les tables"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/colorPrimaryDark"
+                android:textColorHint="#2196F3"
+                android:textSize="36sp" />
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#009688"
+        android:backgroundTint="#0091EA"
+        android:padding="5dp"
+        android:text="Score"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="#2196F3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

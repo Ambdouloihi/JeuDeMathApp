@@ -14,14 +14,16 @@ class Categorie : AppCompatActivity() {
         val btnCalcul: Button = findViewById(R.id.btnCalcul)
         val btnReflexe: Button = findViewById(R.id.btnReflexe)
         val btnMemorisation: Button = findViewById(R.id.btnMemorisation)
+        val btnScore = findViewById<Button>(R.id.btnScore)
 
         btnCalcul.setOnClickListener { goToActivity(Quiz::class.java) }
         btnReflexe.setOnClickListener { goToActivity(JeuDeReflexe::class.java) }
         btnMemorisation.setOnClickListener { goToActivity(Memorisation::class.java) }
+        btnScore.setOnClickListener { goToActivity(ScoreReflexe::class.java) }
 
     }
 
-    private fun goToActivity(cls:Class<*>) {
+    private fun goToActivity(cls: Class<*>) {
         val intent = Intent(this, cls)
         startActivity(intent)
     }
