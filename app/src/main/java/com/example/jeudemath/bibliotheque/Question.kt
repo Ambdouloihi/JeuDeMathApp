@@ -3,7 +3,7 @@ import java.util.*
 
 class Question(calcul: Calcul) {
     val calcul: Calcul
-    var userAnswer:Int = -1
+    var userAnswer:String = ""
     lateinit var answerList: ArrayList<Int>
         private set
     private val rand = Random()

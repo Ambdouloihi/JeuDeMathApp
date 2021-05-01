@@ -1,10 +1,10 @@
 package com.example.jeudemath
 
-import android.app.ActionBar
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -17,34 +17,55 @@ class Resultat : AppCompatActivity() {
 
         btnHome = findViewById(R.id.btnHome)
         btnHome.setOnClickListener { goToCategoriePage() }
-        fillResultat2()
-    }
 
-    private fun fillResultat2() {
+
+        val listView: ListView = findViewById(R.id.containerResultat)
+
+        val listeTable = ArrayList<ResultUser>()
+        listeTable.add(ResultUser("Question", "Répondu", "Réponse"))
+
+
         var allQuest = intent.extras as Bundle
-        var containerResultat: TableLayout = findViewById(R.id.containerResultat)
-        for (key in allQuest.keySet()) {
+        allQuest.keySet().forEach { key ->
             var reponse = allQuest[key] as ArrayList<String>
-            var row = TableRow(this)
-            reponse.forEachIndexed { i, question ->
-                var info = TextView(this)
-                info.text = question
-                info.textSize= 18F
-                if (question == "-1") info.text = ""
-                row.addView(info)
-                if (1 == i)
-                    if ((reponse[1] == reponse[2]))
-                        info.setBackgroundColor(Color.GREEN)
-                    else info.setBackgroundColor(Color.RED)
-                info.gravity = Gravity.CENTER
-            }
-            containerResultat.addView(row)
-
+            listeTable.add(ResultUser(reponse[0], reponse[1], reponse[2]))
         }
+
+
+        class ArrayAdaptaterResult : ArrayAdapter<ResultUser>(this,
+                                                              R.layout.my_list_item_2_resultat,
+                                                              R.id.questResult,
+                                                              listeTable) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                var view: View = super.getView(position, convertView, parent)
+
+                val qest: TextView = view.findViewById(R.id.questResult)
+                val repUser: TextView = view.findViewById(R.id.repUserResult)
+                val rep: TextView = view.findViewById(R.id.repResult)
+
+
+                qest.setText(listeTable.get(position).question)
+                repUser.setText(listeTable.get(position).repondu)
+                rep.setText(listeTable.get(position).reponse)
+
+                if (!repUser.text.equals("Repondu"))
+                    if (repUser.text == rep.text) repUser.setBackgroundColor(Color.GREEN)
+                    else repUser.setBackgroundColor(Color.RED)
+
+                return view
+            }
+        }
+
+        val arrayAdaptaterScore = ArrayAdaptaterResult()
+        listView.adapter = arrayAdaptaterScore
+
+
     }
 
     private fun goToCategoriePage() {
         val intent = Intent(this, Categorie::class.java)
         startActivity(intent)
     }
+
+    class ResultUser(var question: String, var repondu: String, var reponse: String)
 }

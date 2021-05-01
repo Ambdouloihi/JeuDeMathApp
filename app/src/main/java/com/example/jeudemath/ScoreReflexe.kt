@@ -28,11 +28,11 @@ class ScoreReflexe : AppCompatActivity() {
 
         val listView = findViewById<ListView>(R.id.tableViewScore)
 
-       class ArrayAdaptaterScore: ArrayAdapter<Score>(this, R.layout.my_list_item_2score, R.id.rang, listeTable){
+       class ArrayAdaptaterScore: ArrayAdapter<Score>(this, R.layout.my_list_item_2score, R.id.questResult, listeTable){
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 var view:View= super.getView(position, convertView, parent)
-                val text1:TextView = view.findViewById(R.id.rang)
-                val text2:TextView = view.findViewById(R.id.score)
+                val text1:TextView = view.findViewById(R.id.questResult)
+                val text2:TextView = view.findViewById(R.id.repUserResult)
 
 
                 text1.setText(listeTable.get(position).rang)

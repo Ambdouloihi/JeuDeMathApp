@@ -65,7 +65,7 @@ class Quiz() : AppCompatActivity() {
                 when (btnAnswer.currentTextColor) {
                     Color.BLACK -> btnAnswer.setTextColor(Color.BLUE)
                 }
-                if (counter != 0) currentQuest!!.userAnswer = (btnAnswer.text as String).toInt()
+                if (counter != 0) currentQuest!!.userAnswer = (btnAnswer.text as String)
             }
         }
 
@@ -123,7 +123,7 @@ class Quiz() : AppCompatActivity() {
             var data = ArrayList<String>()
 
             data.add(quest.calcul.toString())
-            data.add("" + quest.userAnswer)
+            data.add(quest.userAnswer)
             data.add("" + quest.calcul.answer)
 
             mBundle.putStringArrayList(i.toString(), data)

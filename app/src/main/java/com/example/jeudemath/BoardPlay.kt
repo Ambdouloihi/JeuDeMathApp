@@ -14,7 +14,7 @@ import com.example.jeudemath.ScoreReflexe
 
 
 class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
-    val NBCALCUL = 5
+    val NBCALCUL = 6
     var listCalcul = ArrayList<(Calcul)>()
     var ind = 0
 
@@ -282,7 +282,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
 
 
         fun move() {
-            y += 5
+            y += 2
         }
 
         fun draw(canvas: Canvas) {
