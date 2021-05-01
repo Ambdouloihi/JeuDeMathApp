@@ -48,7 +48,7 @@ class Resultat : AppCompatActivity() {
                 repUser.setText(listeTable.get(position).repondu)
                 rep.setText(listeTable.get(position).reponse)
 
-                if (!repUser.text.equals("Repondu"))
+                if (!repUser.text.equals("Répondu"))
                     if (repUser.text == rep.text) repUser.setBackgroundColor(Color.GREEN)
                     else repUser.setBackgroundColor(Color.RED)
 

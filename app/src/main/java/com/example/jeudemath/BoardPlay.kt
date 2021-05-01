@@ -49,20 +49,24 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     private fun dessineLabel(canvas: Canvas) {
         paint.color = Color.GRAY
         paint.textSize = 50F
-        lblScrore.draw("Score : $score", canvas)
+        lblScrore.draw("Score : $score $estFini", canvas)
 
         when {
-            !estFini -> lblNombre.txt = "$mainAnswer"
+            !estFini -> {
+                lblNombre.txt = "$mainAnswer"
+                btnRestart.isEnabled = false
+            }
             estFini  -> {
                 when {
-                    NBCALCUL <= (nbCorrectRep + 1) -> lblNombre.txt = "GAGNÉ!!!"
+                    NBCALCUL <= (nbCorrectRep + 1) -> lblNombre.txt = "GAGNÉ"
                     else                           -> lblNombre.txt = "PERDU"
                 }
                 paint.textSize = 40F
                 continueText.draw(canvas)
+
+                btnRestart.isEnabled = true
+
                 estFini = false
-
-
             }
         }
         paint.textSize = 80F
@@ -94,6 +98,8 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
             //test de la fin du jeu
             if (text.y < height) estFini = false
         }
+
+
         corrigeCollision()
 
 
