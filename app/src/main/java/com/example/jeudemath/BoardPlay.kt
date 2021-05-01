@@ -49,7 +49,7 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     private fun dessineLabel(canvas: Canvas) {
         paint.color = Color.GRAY
         paint.textSize = 50F
-        lblScrore.draw("Score : $score $estFini", canvas)
+        lblScrore.draw("Score : $score", canvas)
 
         when {
             !estFini -> {
