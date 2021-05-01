@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_layout)
-//        title = "Calcul Mental"
+
 
         val btnJouer: Button = findViewById(R.id.btnJouer)
         btnJouer.setOnClickListener { goToCategoriePage() }

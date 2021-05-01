@@ -12,28 +12,30 @@ import androidx.core.view.get
 
 
 class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) {
-    val NBCALCUL = 10
+    val NBCALCUL = 5
     var listCalcul = ArrayList<(Calcul)>()
     var ind = 0
 
     private var estFini = false
-    private var nbCorrectRep = 1
+    private var nbCorrectRep = 0
     val paint = Paint()
     var mainAnswer = 0
     var score = 0
 
     private lateinit var lblScrore: TxtLabel
     private lateinit var lblNombre: TxtLabel
+    private lateinit var continueText: TxtLabel
 
-    private lateinit var btnRestart: Button
+    private lateinit var btnRestart:Button
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
         dessineFond(canvas)
 
         dessineLabel(canvas)
 
-        estFini = true // le jeu fini lorsque tous les label calcul disparaisent
+
         dessinerLesCalculs(canvas)
         invalidate() //rappel onDraw(cette meme fonction)
     }
@@ -46,46 +48,52 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         paint.color = Color.GRAY
         paint.textSize = 50F
         lblScrore.draw("Score : $score", canvas)
-        paint.textSize = 80F
 
         when {
             !estFini -> lblNombre.txt = "$mainAnswer"
             estFini  -> {
-                dessineEtatDeFin()
+                when {
+                    NBCALCUL <= (nbCorrectRep + 1) -> lblNombre.txt = "GAGNÉ!!!"
+                    else                           -> lblNombre.txt = "PERDU"
+                }
+                paint.textSize = 40F
+                continueText.draw(canvas)
+                estFini = false
             }
         }
+        paint.textSize = 80F
         lblNombre.draw(lblNombre.txt, canvas)
     }
 
-    private fun dessineEtatDeFin() {
-        when (NBCALCUL) {
-            nbCorrectRep -> lblNombre.txt = "GAGNÉ!!!"
-            else         -> lblNombre.txt = "PERDU"
-        }
-        //enable button
-        btnRestart.isEnabled = true
-    }
 
     fun restart() {
-        btnRestart.isEnabled = false
-        listCalcul.clear()
-        fillListCoord()
+
+        nbCorrectRep = 0
         ind = 0
         score = 0
+
+        listCalcul.clear()
+        initListCalc()
+
+        btnRestart.isEnabled=false
     }
 
     private fun dessinerLesCalculs(canvas: Canvas) {
-        paint.textSize = 80F
+        estFini = true // le jeu fini lorsque tous les label calcul disparaisent
+
+        //paint.textSize = 80F
         listCalcul.forEach { text ->
             paint.color = text.color
-            text.draw(canvas, paint)
+            text.draw(canvas)
             //test de la fin du jeu
             if (text.y < height) estFini = false
         }
         corrigeCollision()
+
+        if (estFini) btnRestart.isEnabled=true
     }
 
-    fun corrigeCollision() {
+    private fun corrigeCollision() {
         var texti: Calcul
         var textj: Calcul
         //correct collision
@@ -109,84 +117,90 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
     }
 
 
-    fun fillListCoord() {
-        var cx: Int
-        var cy: Int
-        var txt: Calcul
+    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
+        super.onSizeChanged(w, h, oldw, oldh)
 
-        (1..NBCALCUL).forEach { i ->
-            cx = randomNumber(0, width)
-            cy = randomNumber(-(height / 2), height / 2)
-            txt = Calcul(cx.toFloat(), cy.toFloat(), paint)
-            listCalcul.add(txt)
-            if ((width - txt.twidth) < txt.x)
-                txt.x -= txt.twidth
-        }
+        initListCalc()
+
+        var x = (width / 2).toFloat()
+        var y = 100.0F
+
+        lblScrore = TxtLabel("Score : $score", x, y, paint)
+
+        y = (height / 2).toFloat()
+
+        lblNombre = TxtLabel("$mainAnswer", x, y, paint)
+
+
+        continueText = TxtLabel("(cliquez sur le button recommencer)",
+                                x,
+                                lblNombre.y+lblNombre.twidth+100,
+                                paint)
+
+        val canvasParent=parent.parent as ConstraintLayout
+        btnRestart= canvasParent[1] as Button
+        btnRestart.setOnClickListener { restart() }
+        btnRestart.isEnabled=false
+    }
+
+    private fun initListCalc() {
+        listCalcul = fillListCoord()
         mainAnswer = listCalcul[ind].calcAnswer
     }
 
-    override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
-        super.onSizeChanged(w, h, oldw, oldh)
-        fillListCoord()
-        paint.textSize = 50F
-        lblScrore = TxtLabel(
-            "Score : $score",
-            (width / 2).toFloat(), 100.0F, paint
-                            )
-        paint.textSize = 80F
-        lblNombre = TxtLabel(
-            "$mainAnswer",
-            (width / 2).toFloat(), (height / 2).toFloat(), paint
-                            )
+    private fun fillListCoord(): ArrayList<(Calcul)> {
+        var cx: Float
+        var cy: Float
+        var calcul: Calcul
+        var list = ArrayList<Calcul>()
+        (1..NBCALCUL).forEach { _ ->
+            cx = randomNumber(0, width).toFloat()
+            cy = randomNumber(-(height / 2), height / 2).toFloat()
 
-        //desable button
-        var cl = parent.parent as ConstraintLayout
-        btnRestart = cl[1] as Button
-        btnRestart.isEnabled = false
-
-        btnRestart.setOnClickListener { restart() }
+            calcul = Calcul(cx, cy, paint)
+            list.add(calcul)
+            if ((width - calcul.twidth) < calcul.x) // gerer les coordonnes qui depasse l'ecran
+                calcul.x -= calcul.twidth
+        }
+        return list
     }
 
     override fun onTouchEvent(e: MotionEvent?): Boolean {
-        if (e != null) for (text in listCalcul) when {
-            text.isTouch(e.x.toInt(), e.y.toInt()) -> {
-                //clic calcul de base
-                when (text.color) {
-                    Color.RED -> text.color = Color.GRAY
-                    else      -> text.color = Color.RED
-                }
 
-                //clic bonne reponse
+        if (e != null)
+            listCalcul.forEach { calcul ->
                 when {
-                    (text.calcAnswer == mainAnswer) &&
-                    (text.color != Color.BLUE) -> {
-                        text.color = Color.BLUE
+                    calcul.isTouch(e.x.toInt(), e.y.toInt()) -> {
                         when {
-                            (ind + 1) < listCalcul.size -> {
-                                ind++;nbCorrectRep++
+                            (calcul.calcAnswer == mainAnswer) -> {
+
+                                if ((ind + 1) < listCalcul.size) {
+                                    ind++
+                                    nbCorrectRep++
+                                }
+                                calcul.goodClic()
+                                if (score < Int.MAX_VALUE) score++
+                                mainAnswer = listCalcul[ind].calcAnswer
+                            }
+                            else                              -> {
+                                calcul.normalClic()
+                                if (Int.MIN_VALUE < score) score--
                             }
                         }
-//                        nbCorrectRep++
-                        mainAnswer = listCalcul[ind].calcAnswer
-                        when {
-                            score < Int.MAX_VALUE -> score++
-                        }
                     }
-                    Int.MIN_VALUE < score      -> score--
                 }
-
             }
-        }
         return super.onTouchEvent(e)
     }
 
     class TxtLabel(
         var txt: String,
-        private var x: Float, private var y: Float,
-        private var paint: Paint
+        var x: Float,
+        var y: Float,
+        private var paint: Paint,
                   ) {
-        private var twidth = 0
-        private var theight = 0
+         var twidth = 0
+        var theight = 0
 
         init {
             paint.color = Color.GRAY
@@ -195,6 +209,10 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         fun draw(newTxt: String, canvas: Canvas) {
             setBounds()
             canvas.drawText(newTxt, x - (twidth / 2), y - (theight / 2), paint)
+        }
+        fun draw(canvas: Canvas) {
+            setBounds()
+            canvas.drawText(txt, x - (twidth / 2), y - (theight / 2), paint)
         }
 
         private fun setBounds() {
@@ -206,25 +224,27 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
         }
     }
 
-    class Calcul(var x: Float, var y: Float, paint: Paint) {
+    class Calcul(var x: Float, var y: Float, var paint: Paint) {
         var color: Int = Color.GRAY
         var txt: String = Calcul().toString()
         var twidth = 0
         var theight = 0
         var calcAnswer = 0
-
+        var textSizeCalc=100F
         init {
             var calc = Calcul()
             txt = calc.toString()
             calcAnswer = calc.answer
 
-            paint.textSize = 100F
+            paint.textSize = textSizeCalc
+
             setBounds(txt, paint)
+
         }
 
         private fun setBounds(
             txt: String,
-            paint: Paint
+            paint: Paint,
                              ) {
             var bounds = Rect()
             paint.getTextBounds(txt, 0, txt.length, bounds);
@@ -237,11 +257,14 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
             y += 1
         }
 
-        fun draw(canvas: Canvas, paint: Paint) {
-            paint.color = color
+        fun draw(canvas: Canvas) {
+            paint.textSize=textSizeCalc
+            setBounds(txt,paint)
+
             canvas.drawText(txt + "", x, y, paint)
             move()
         }
+
 
         fun isTouch(x1: Int, y1: Int): Boolean {
             return (x < x1) && (x1 < (x + twidth)) &&
@@ -253,6 +276,26 @@ class BoardPlay(context: Context?, attrs: AttributeSet?) : View(context, attrs) 
                    ((txt.y - txt.theight) < y) && ((y - theight) < txt.y)
         }
 
-    }
+        fun normalClic() {
+            when (color) {
+                Color.RED -> color = Color.GRAY
+                else      -> color = Color.RED
+            }
+        }
 
+        fun goodClic() {
+            when {
+                color != Color.BLUE -> color = Color.BLUE
+                color == Color.BLUE -> {
+                    color =
+                        Color.rgb(randomNumber(0, 255), randomNumber(0, 255), randomNumber(0, 255))
+                    textSizeCalc += 10
+                }
+            }
+        }
+
+        fun randomNumber(minVal: Int, maxVal: Int): Int {
+            return Math.round(minVal + Math.random() * maxVal).toInt()
+        }
+    }
 }

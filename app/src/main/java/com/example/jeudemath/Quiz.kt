@@ -106,7 +106,6 @@ class Quiz() : AppCompatActivity() {
         var calculQuest = currentQuest?.calcul
         lbCalcul.text = calculQuest.toString() + " = ?"
 
-        //containerAnswer.removeAllViews()
         containerAnswer.children.forEachIndexed { i, btn ->
             val btnAnswer=btn as Button
             btnAnswer.setTextColor(Color.BLACK)

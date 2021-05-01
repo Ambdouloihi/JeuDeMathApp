@@ -58,7 +58,8 @@
                 android:layout_height="wrap_content"
                 android:background="#009688"
                 android:backgroundTint="#0091EA"
-                android:text="calcul"
+                android:text="Calcul"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="#2196F3"
                 android:textSize="36sp" />
@@ -69,7 +70,10 @@
                 android:layout_height="69dp"
                 android:background="#009688"
                 android:backgroundTint="#0091EA"
-                android:text="mémorisation"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="Mémorisation"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="#2196F3"
                 android:textSize="36sp" />
@@ -80,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:background="#009688"
                 android:backgroundTint="#0091EA"
-                android:text="réflexe"
+                android:text="Réflexe"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/colorPrimaryDark"
                 android:textColorHint="#2196F3"
                 android:textSize="36sp" />
